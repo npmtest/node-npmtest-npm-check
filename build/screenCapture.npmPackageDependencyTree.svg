@@ -121,7 +121,7 @@
 <tspan x="10" y="1898">  │ ├── map-obj@1.0.1 </tspan>
 <tspan x="10" y="1914">  │ ├── minimist@1.2.0 </tspan>
 <tspan x="10" y="1930">  │ ├─┬ normalize-package-data@2.3.6 </tspan>
-<tspan x="10" y="1946">  │ │ ├── hosted-git-info@2.4.1 </tspan>
+<tspan x="10" y="1946">  │ │ ├── hosted-git-info@2.4.2 </tspan>
 <tspan x="10" y="1962">  │ │ ├── is-builtin-module@1.0.0 </tspan>
 <tspan x="10" y="1978">  │ │ └─┬ validate-npm-package-license@3.0.1 </tspan>
 <tspan x="10" y="1994">  │ │   ├─┬ spdx-correct@1.0.2 </tspan>

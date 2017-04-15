@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <title>Code coverage report for node-npmtest-npm-check/npm-check/lib/in/create-package-summary.js</title>
     <meta charset="utf-8">
     <style>
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-npm-check/npm-check/lib/in/</a> &#187; create-package-summary.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-npm-check/npm-check/lib/in/</a> » create-package-summary.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -451,68 +449,68 @@ const path = require('path');
 const semver = require('semver');
 const minimatch = require('minimatch');
 &nbsp;
-<span class="fstat-no" title="function not covered" >function createPackageSummary(moduleName, currentState) {</span>
-<span class="cstat-no" title="statement not covered" >    const cwdPackageJson = currentState.get('cwdPackageJson');</span>
+<span class="fstat-no" title="function not covered">function createPackageSummary(moduleName, currentState) {</span>
+<span class="cstat-no" title="statement not covered">    const cwdPackageJson = currentState.get('cwdPackageJson');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    const modulePath = path.join(currentState.get('nodeModulesPath'), moduleName);</span>
-<span class="cstat-no" title="statement not covered" >    const packageIsInstalled = pathExists.sync(modulePath);</span>
-<span class="cstat-no" title="statement not covered" >    const modulePackageJson = readPackageJson(path.join(modulePath, 'package.json'));</span>
+<span class="cstat-no" title="statement not covered">    const modulePath = path.join(currentState.get('nodeModulesPath'), moduleName);</span>
+<span class="cstat-no" title="statement not covered">    const packageIsInstalled = pathExists.sync(modulePath);</span>
+<span class="cstat-no" title="statement not covered">    const modulePackageJson = readPackageJson(path.join(modulePath, 'package.json'));</span>
 &nbsp;
     // Ignore private packages
-<span class="cstat-no" title="statement not covered" >    const isPrivate = Boolean(modulePackageJson.private);</span>
-<span class="cstat-no" title="statement not covered" >    if (isPrivate) {</span>
-<span class="cstat-no" title="statement not covered" >        return false;</span>
+<span class="cstat-no" title="statement not covered">    const isPrivate = Boolean(modulePackageJson.private);</span>
+<span class="cstat-no" title="statement not covered">    if (isPrivate) {</span>
+<span class="cstat-no" title="statement not covered">        return false;</span>
     }
 &nbsp;
     // Ignore packages that are using github or file urls
-<span class="cstat-no" title="statement not covered" >    const packageJsonVersion = cwdPackageJson.dependencies[moduleName] ||</span>
+<span class="cstat-no" title="statement not covered">    const packageJsonVersion = cwdPackageJson.dependencies[moduleName] ||</span>
         cwdPackageJson.devDependencies[moduleName] ||
         currentState.get('globalPackages')[moduleName];
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (packageJsonVersion &amp;&amp; !semver.validRange(packageJsonVersion)) {</span>
-<span class="cstat-no" title="statement not covered" >        return false;</span>
+<span class="cstat-no" title="statement not covered">    if (packageJsonVersion &amp;&amp; !semver.validRange(packageJsonVersion)) {</span>
+<span class="cstat-no" title="statement not covered">        return false;</span>
     }
 &nbsp;
     // Ignore specified '--ignore' package globs
-<span class="cstat-no" title="statement not covered" >    const ignore = currentState.get('ignore');</span>
-<span class="cstat-no" title="statement not covered" >    if (ignore) {</span>
-<span class="cstat-no" title="statement not covered" >        const ignoreMatch = Array.isArray(ignore) ? ignore.some(ignoredModule =&gt; <span class="cstat-no" title="statement not covered" >minimatch(moduleName, ignoredModule))</span> : minimatch(moduleName, ignore);</span>
-<span class="cstat-no" title="statement not covered" >        if (ignoreMatch) {</span>
-<span class="cstat-no" title="statement not covered" >            return false;</span>
+<span class="cstat-no" title="statement not covered">    const ignore = currentState.get('ignore');</span>
+<span class="cstat-no" title="statement not covered">    if (ignore) {</span>
+<span class="cstat-no" title="statement not covered">        const ignoreMatch = Array.isArray(ignore) ? ignore.some(ignoredModule =&gt; <span class="cstat-no" title="statement not covered">minimatch(moduleName, ignoredModule))</span> : minimatch(moduleName, ignore);</span>
+<span class="cstat-no" title="statement not covered">        if (ignoreMatch) {</span>
+<span class="cstat-no" title="statement not covered">            return false;</span>
         }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    const unusedDependencies = currentState.get('unusedDependencies');</span>
-<span class="cstat-no" title="statement not covered" >    const missingFromPackageJson = currentState.get('missingFromPackageJson');</span>
+<span class="cstat-no" title="statement not covered">    const unusedDependencies = currentState.get('unusedDependencies');</span>
+<span class="cstat-no" title="statement not covered">    const missingFromPackageJson = currentState.get('missingFromPackageJson');</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function foundIn(files) {</span>
-<span class="cstat-no" title="statement not covered" >        if (!files) {</span>
-<span class="cstat-no" title="statement not covered" >            return;</span>
+<span class="fstat-no" title="function not covered">    function foundIn(files) {</span>
+<span class="cstat-no" title="statement not covered">        if (!files) {</span>
+<span class="cstat-no" title="statement not covered">            return;</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return 'Found in: ' + files.map(filepath =&gt; <span class="cstat-no" title="statement not covered" >filepath.replace(currentState.get('cwd'), ''))</span></span>
+<span class="cstat-no" title="statement not covered">        return 'Found in: ' + files.map(filepath =&gt; <span class="cstat-no" title="statement not covered">filepath.replace(currentState.get('cwd'), ''))</span></span>
             .join(', ');
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return getLatestFromRegistry(moduleName)</span>
+<span class="cstat-no" title="statement not covered">    return getLatestFromRegistry(moduleName)</span>
         .then(fromRegistry =&gt; {
-<span class="cstat-no" title="statement not covered" >            const installedVersion = modulePackageJson.version;</span>
+<span class="cstat-no" title="statement not covered">            const installedVersion = modulePackageJson.version;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            const latest = installedVersion &amp;&amp; fromRegistry.latest &amp;&amp; fromRegistry.next &amp;&amp; semver.gt(installedVersion, fromRegistry.latest) ? fromRegistry.next : fromRegistry.latest;</span>
-<span class="cstat-no" title="statement not covered" >            const versions = fromRegistry.versions || [];</span>
+<span class="cstat-no" title="statement not covered">            const latest = installedVersion &amp;&amp; fromRegistry.latest &amp;&amp; fromRegistry.next &amp;&amp; semver.gt(installedVersion, fromRegistry.latest) ? fromRegistry.next : fromRegistry.latest;</span>
+<span class="cstat-no" title="statement not covered">            const versions = fromRegistry.versions || [];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            const versionWanted = semver.maxSatisfying(versions, packageJsonVersion);</span>
+<span class="cstat-no" title="statement not covered">            const versionWanted = semver.maxSatisfying(versions, packageJsonVersion);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            const versionToUse = installedVersion || versionWanted;</span>
-<span class="cstat-no" title="statement not covered" >            const usingNonSemver = semver.valid(latest) &amp;&amp; semver.lt(latest, '1.0.0-pre');</span>
+<span class="cstat-no" title="statement not covered">            const versionToUse = installedVersion || versionWanted;</span>
+<span class="cstat-no" title="statement not covered">            const usingNonSemver = semver.valid(latest) &amp;&amp; semver.lt(latest, '1.0.0-pre');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            const bump = semver.valid(latest) &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered">            const bump = semver.valid(latest) &amp;&amp;</span>
                         semver.valid(versionToUse) &amp;&amp;
                         (usingNonSemver &amp;&amp; semverDiff(versionToUse, latest) ? 'nonSemver' : semverDiff(versionToUse, latest));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            const unused = _.includes(unusedDependencies, moduleName);</span>
+<span class="cstat-no" title="statement not covered">            const unused = _.includes(unusedDependencies, moduleName);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            return {</span>
+<span class="cstat-no" title="statement not covered">            return {</span>
                 // info
                 moduleName: moduleName,
                 homepage: fromRegistry.homepage,
@@ -533,7 +531,7 @@ const minimatch = require('minimatch');
                 // meta
                 devDependency: _.has(cwdPackageJson.devDependencies, moduleName),
                 usedInScripts: _.findKey(cwdPackageJson.scripts, script =&gt; {
-<span class="cstat-no" title="statement not covered" >                    return script.indexOf(moduleName) !== -1;</span>
+<span class="cstat-no" title="statement not covered">                    return script.indexOf(moduleName) !== -1;</span>
                 }),
                 mismatch: semver.validRange(packageJsonVersion) &amp;&amp;
                     semver.valid(versionToUse) &amp;&amp;
@@ -554,10 +552,11 @@ const minimatch = require('minimatch');
 module.exports = createPackageSummary;
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
     <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 15 2017 21:50:34 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,6 @@
 # npmtest-npm-check
 
-#### test coverage for  [npm-check (v5.4.0)](https://github.com/dylang/npm-check)  [![npm package](https://img.shields.io/npm/v/npmtest-npm-check.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-npm-check) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-npm-check.svg)](https://travis-ci.org/npmtest/node-npmtest-npm-check)
+#### basic test coverage for  [npm-check (v5.4.0)](https://github.com/dylang/npm-check)  [![npm package](https://img.shields.io/npm/v/npmtest-npm-check.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-npm-check) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-npm-check.svg)](https://travis-ci.org/npmtest/node-npmtest-npm-check)
 
 #### Check for outdated, incorrect, and unused dependencies.
 
